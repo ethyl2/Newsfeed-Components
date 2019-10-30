@@ -123,7 +123,146 @@ const data = [
  That is true, hackers, that is true.
  But they cannot help their neighbors;
  That’s not good, hackers, that’s not good.”`
- }
+ },
+ /*Part 2: Add Articles -- Now that we have our components built, 
+ add a few articles of your own to the data array.*/
+
+ {title: 'Model View Controller',
+    date: 'Oct 30, 2019',
+    firstParagraph: `© 2003-2012 James Dempsey`,
+
+    secondParagraph: `James Dempsey, an Apple engineer, introduced his heartfelt 
+    ode to the popular software architectural pattern back in 2003. 
+    With an acoustic guitar on the stage at Apple’s Worldwide Developer’s 
+    Conference (WWDC), he explained its inspiration. “As sometimes happens 
+    with technologies that I get stoked about, the first thing I do is go to 
+    the iTunes music store, and type in some keywords to see if there are 
+    any songs about it.” And when there weren’t any, he’d decided to write one up himself.`,
+
+    thirdParagraph: `MVC’s a paradigm for factoring your code,
+    Into functional segments, so your brain does not explode.
+    To achieve reusability, you’ve got to keep those boundaries clean,
+    Model on the one side, view on the other, the controller’s in between.
+    
+    Model View
+    Yeah, it’s got three layers like them Oreos do
+    Model View Creamy Controller
+    
+    Model objects represent your application’s raison d’être
+    Custom objects that contain data, logic, and et cetera
+    You create custom classes in your app’s problem domain
+    Then you can choose to reuse them with other views
+    But the model objects stay the same
+    
+    You can model a throttle and a manifold
+    Model the toddle of a two year old
+    Model a bottle of fine chardonnay
+    Model all the glottal stops people say
+    Model the coddling of boiling eggs
+    You can model the waddle in Hexley’s legs
+    
+    Model View
+    You can model all the models that pose for GQ
+    Model View Controller
+    
+    View object tend to be controls used to display and edit
+    Cocoa’s got a lot of those, well written, to its credit
+    Take a Cocoa text view, hand it any old Unicode string
+    The user can interact with it
+    It can hold most anything
+    
+    Oh but the view don’t know about the model
+    That string could be a phone number or the works of Aristotle
+    Keep the coupling loose
+    And so achieve a massive level of reuse
+    
+    Model View
+    Yeah on a retina display y’know it’s all times two
+    Model View Controller
+    
+    I’ll bet you’re wondering now
+    I’ll bet you’re wondering how
+    Data flows between model and view
+    The controller has to mediate
+    Between each layer’s changing state
+    To synchronize the data of the two
+    It pulls and pushes every changed value.
+    
+    Yeah.
+    
+    Model View
+    Mad props to the SmallTalk crew
+    For Model View Controller
+    
+    Model View
+    It’s pronounced ‘oh-oh’, not ‘ooh-ooh’
+    Model View Controller
+    
+    Controllers know the model and view very intimately
+    They gotta know just enough to do all the right stuff in this ménage à three
+    They’ve got a lot on their plate, also need to integrate OS functionality
+    In their coordinating role
+    They give your app its soul
+    Making it all that it can be
+    
+    Model View
+    Notification, delegation, target action too
+    Model View Controller
+    
+    Model View
+    Model View
+    Model View Controller
+    
+    Model View
+    Now you can claim to be an MVC guru
+    Model View Controller
+    
+    `},
+    {
+      title: 'Debugging Angst',
+      date: 'Oct 30, 2019',
+      firstParagraph: `Eric Siegel wrote and performed this song when he was a computer science professor at Columbia University, 1997 - 2000.`,
+  
+      secondParagraph: `This version is specific to C programming; there is also a Java programming version.`,
+  
+      thirdParagraph: `"syntax error", "parsing error"; did you forget your ;?
+      Programming is 99% debugging, so you better keep it scrollin'.
+      "unterminated string", did you match your ''?
+      /* Comment your code, label your node, write yourself a note! */
+      Chorus:
+      It's the pain of finally figuring out what went wrong ("doh!").
+      Who's to blame when you confuse two equal signs with one?
+      Compiler warnings should not be ignored; you'll dereference a NULL pointer.
+      If you screw up and find your butt in an infinite loop, ^C will control C.
+      Don't disrespect your teaching assistant -- she's your biggest hero.
+      "floating point exception" is a run-time error when you divide by 0.
+      "segmentation fault" can bring you to tears -- in your throat there'll be a lump,
+      'cause when it's time to submit your homework all you'll get is a "core dump"
+      Chorus
+      Bridge:
+      Ultimately what you've got to do is narrow down the problem.
+      It's like finding a needle in a haystack; you're never gonna solve them,
+      unless you put in some printf()'s, comment half that haystack.
+      "stack overflow", you've no place to go, your program is a lame hack!
+      Chorus`
+    },
+    {
+      title: 'Learning C After Java',
+      date: 'Oct 30, 2019',
+      firstParagraph: `By David Arnow (arnow@sci.brooklyn.cuny.edu)`,
+  
+      secondParagraph: `Imagine there's no classes,
+      It isn't hard to do.
+      No objects to send messages
+      No references too
+      Imagine all the methods
+      Static and you've got C.`,
+  
+      thirdParagraph: `O-ho you might say that that's a nightmare
+      And you're not the only one
+      But the language has its uses
+      And like Java can be fun.`
+    }
 ];
 
 /* Step 1: Create a function that creates a component. You will want your 
@@ -162,6 +301,7 @@ function createArticle(artObj) {
   articleP2.textContent = artObj.secondParagraph;
   const articleP3 = document.createElement("p");
   articleP3.textContent = artObj.thirdParagraph;
+  
 
   const articleBtn = document.createElement("span");
   articleBtn.textContent = "Read";
@@ -173,6 +313,7 @@ function createArticle(artObj) {
   */
   articleBtn.addEventListener('click', (event) => {
     articleDiv.classList.toggle('article-open');
+    articleDiv.style.overflow = "auto";
   });
 
   //Append children to parent div
