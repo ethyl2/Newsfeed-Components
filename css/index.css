@@ -41,10 +41,12 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
+  /*display: none; */
+  /*display:none is original CSS here, before animation */
   position: fixed;
   top: 75px;
-  left: 0;
+  left: -800px;
+  /*left: 0 is original CSS here, before animation */
   width: 350px;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */

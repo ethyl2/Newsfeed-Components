@@ -62,5 +62,16 @@ const menu = document.querySelector('.menu');
   on the menu (your div with a 'menu' class).
   */
 menuBtn.addEventListener('click', (event) => {
-  menu.classList.toggle('menu--open');
+  //Original event:
+  //menu.classList.toggle('menu--open');
+
+  //Stretch: Menu slides out when the button is clicked.
+  TweenMax.to(menu, 2, {left: -800});
 });
+
+/* Stretch: Animation Goal #1. Animate the menu opening: 
+You will need to change the CSS for the menu in order to achieve this. 
+Get the menu to slide in from the left side of the screen. 
+*/
+
+TweenMax.to(menu, 2, {left: 0});
