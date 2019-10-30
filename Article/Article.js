@@ -356,15 +356,19 @@ Component Constructor and some input fields. */
 const submitBtn = document.querySelector('#submit-btn');
 submitBtn.addEventListener('click', function(event) {
   let title = document.getElementById("user-input-title").value;
+
   let date = document.getElementById("user-input-date").value;
+  date = new Date(date);
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let myFormattedDate = months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
   
   let firstParagraph = document.getElementById("user-input-first-paragraph").value;
   let secondParagraph = document.getElementById("user-input-second-paragraph").value;
   let thirdParagraph = document.getElementById("user-input-third-paragraph").value;
-
+  
   let myObj = {};
   myObj.title = title;
-  myObj.date = date;
+  myObj.date = myFormattedDate;
   myObj.firstParagraph = firstParagraph;
   myObj.secondParagraph = secondParagraph;
   myObj.thirdParagraph = thirdParagraph;

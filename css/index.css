@@ -66,6 +66,7 @@
 }
 .articles {
   margin-top: 95px;
+  margin-bottom: 3rem;
 }
 .article {
   margin: 20px 10%;
@@ -104,6 +105,49 @@
 }
 .article-open {
   height: 400px;
+}
+.input-section {
+  background: #388E3C;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-section form {
+  padding: 2rem;
+  width: 70%;
+  border-radius: 8px;
+  background: #60A563;
+}
+.input-section form label {
+  margin: 1rem auto 2rem auto;
+}
+.input-section form input {
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 4px;
+  line-height: 2rem;
+}
+.input-section form input[type="textarea"] {
+  height: 3rem;
+}
+.input-section input[type="submit"] {
+  background: #1D491E;
+  color: white;
+  width: 30%;
+  height: 3rem;
+  margin: 1rem;
+  border-radius: 3px;
+}
+.input-section input[type="submit"]:hover {
+  color: #1D491E;
+  background: white;
+}
+.input-section input[type="submit"]:active {
+  font-style: italic;
+  font-weight: bold;
 }
 html,
 body {
