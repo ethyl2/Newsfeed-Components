@@ -343,16 +343,31 @@ implement a function that took some data, created a new Article from it,
 and appended it to the HTML (without actually writing anything in 
   the HTML file). */
 
-function componentContructor(myArr) {
-  const htmlEl = document.querySelector("html");
-  htmlEl.appendChild(createArticle(myArr));
+function componentContructor(myDataObj, targetEl=document.querySelector("body")) {
+  // How it appends to the HTML:
+  // If no target element is specified, appends component to the body.
+  // If target element is added as the 2nd argument, appends component to target element.
+  targetEl.appendChild(createArticle(myDataObj));
 }
 
 /* Stretch Goal: Implement a way to write your own articles using the 
 Component Constructor and some input fields. */
 
-function showInput() {
-  document.getElementById('display').textContent = 
-  document.getElementById("user-input").value;
+const submitBtn = document.querySelector('#submit-btn');
+submitBtn.addEventListener('click', function(event) {
+  let title = document.getElementById("user-input-title").value;
+  let date = document.getElementById("user-input-date").value;
+  
+  let firstParagraph = document.getElementById("user-input-first-paragraph").value;
+  let secondParagraph = document.getElementById("user-input-second-paragraph").value;
+  let thirdParagraph = document.getElementById("user-input-third-paragraph").value;
 
-}
+  let myObj = {};
+  myObj.title = title;
+  myObj.date = date;
+  myObj.firstParagraph = firstParagraph;
+  myObj.secondParagraph = secondParagraph;
+  myObj.thirdParagraph = thirdParagraph;
+
+  componentContructor(myObj, articlesDiv);
+});

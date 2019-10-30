@@ -15,11 +15,25 @@
     <div class="articles"></div>
 
     <section class="input-section">
+      <h2>Add New Article Info Here</h2>
       <form>
-        <label>Add New Article Info Here</label>
-        <input type="text" name="message" id="user-input" /> 
+        <label for="title">Title</label>
+        <input type="text" name="title" id="user-input-title" /><br />
+
+        <label for="date">Date</label>
+        <input type="text" name="date" id="user-input-date" /> <br />
+
+        <label for="first-paragraph">First Paragraph</label>
+        <input type="text" name="first-paragraph" id="user-input-first-paragraph" /> <br />
+      
+        <label for="second-paragraph">Second Paragraph</label>
+        <input type="text" name="second-paragraph" id="user-input-second-paragraph" /> <br />
+        
+        <label for="second-paragraph">Third Paragraph</label>
+        <input type="text" name="third-paragraph" id="user-input-third-paragraph" /> <br />
+      
       </form>
-      <input type="submit" onclick="showInput();" /><br />
+      <input id="submit-btn" type="submit" /><br />
       <label>Your input: </label>
       <p><span id="display"></span></p>
     </section>
