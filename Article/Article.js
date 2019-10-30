@@ -333,4 +333,26 @@ const articlesDiv = document.querySelector(".articles");
 const articleArray = data.map((articleData) => { 
   articlesDiv.appendChild(createArticle(articleData));
 });
- 
+
+/* Stretch Goal Component Constructor
+
+Create a function that builds Article components. 
+You are not expected to finish this. 
+This goal is simply an exercise in thinking about how you would 
+implement a function that took some data, created a new Article from it, 
+and appended it to the HTML (without actually writing anything in 
+  the HTML file). */
+
+function componentContructor(myArr) {
+  const htmlEl = document.querySelector("html");
+  htmlEl.appendChild(createArticle(myArr));
+}
+
+/* Stretch Goal: Implement a way to write your own articles using the 
+Component Constructor and some input fields. */
+
+function showInput() {
+  document.getElementById('display').textContent = 
+  document.getElementById("user-input").value;
+
+}
