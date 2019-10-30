@@ -71,7 +71,7 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
-    title: 'Professional Software Development in 2019',
+    title: 'Professional Software Dev in 2019',
     date: 'Jan 1st, 2019',
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
@@ -85,10 +85,49 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  /*
+  Step 5: Add a new article to the array. Make sure it is in the same 
+  format as the others. Refresh the page to see the new article.
+  */
+ {
+ title: 'The Free Software Song',
+ date: 'Oct 30st, 2019',
+ firstParagraph: `By Richard Stallman. The lyrics of the “Free Software Song” are sung to the melody of the Bulgarian folk song “Sadi moma bela loza”`,
+
+ secondParagraph: `Join us now and share the software;
+ You'll be free, hackers, you'll be free.
+ Join us now and share the software;
+ You'll be free, hackers, you'll be free.
+ 
+ Hoarders can get piles of money,
+ That is true, hackers, that is true.
+ But they cannot help their neighbors;
+ That's not good, hackers, that's not good.
+ 
+ When we have enough free software
+ At our call, hackers, at our call,
+ We'll kick out those dirty licenses
+ Ever more, hackers, ever more.
+ 
+ Join us now and share the software;
+ You'll be free, hackers, you'll be free.
+ Join us now and share the software;
+ You'll be free, hackers, you'll be free.`,
+
+ thirdParagraph: `When Stallman makes a personal appearance, he’ll sometimes surprise his audience by closing with an a capella rendition of the song, as a kind of benediction:
+
+ “Join us now and share the software;
+ You’ll be free, hackers, you’ll be free.
+ Hoarders can get piles of money,
+ That is true, hackers, that is true.
+ But they cannot help their neighbors;
+ That’s not good, hackers, that’s not good.”`
+ }
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+/* Step 1: Create a function that creates a component. You will want your 
+component to look like the template below: 
   
   <div class="article">
     <h2>{title of the article}</h2>
@@ -101,14 +140,56 @@ const data = [
 
   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
-
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
-
-  Step 3: return the entire component.
-
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
-
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
+  Your function should take either an object as its one argument, 
+  or 5 separate arguments mapping to each piece of the data object above.
 */
+
+function createArticle(artObj) {
+  // Create DOM elements
+  const articleDiv = document.createElement("div");
+  articleDiv.classList.add('article');
+
+  const articleHeading = document.createElement("h2");
+  articleHeading.textContent = artObj.title;
+
+  const articleDate = document.createElement("p");
+  articleDate.textContent = artObj.date;
+  articleDate.classList.add('date');
+
+  const articleP1 = document.createElement("p");
+  articleP1.textContent = artObj.firstParagraph;
+  const articleP2 = document.createElement("p");
+  articleP2.textContent = artObj.secondParagraph;
+  const articleP3 = document.createElement("p");
+  articleP3.textContent = artObj.thirdParagraph;
+
+  const articleBtn = document.createElement("span");
+  articleBtn.textContent = "Read";
+  articleBtn.classList.add('expandButton');
+
+  /*
+  Step 2: Add an event listener to the expandButton span. 
+  This event listener should toggle the class 'article-open' on the 'article' div.
+  */
+  articleBtn.addEventListener('click', (event) => {
+    articleDiv.classList.toggle('article-open');
+  });
+
+  //Append children to parent div
+  const children = [articleHeading, articleDate, articleP1, articleP2, articleP3, articleBtn];
+  children.forEach(child => articleDiv.appendChild(child));
+
+  // Step 3: return the entire component.
+  return articleDiv;
+
+}
+
+/*
+  Step 4: Map over the data, creating a component for each object 
+  and add each component to the DOM as children of the 'articles' div.
+  */
+const articlesDiv = document.querySelector(".articles");
+const articleArray = data.map((articleData) => { 
+  articlesDiv.appendChild(createArticle(articleData));
+});
+ 
