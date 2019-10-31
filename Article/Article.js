@@ -127,7 +127,7 @@ const data = [
  /*Part 2: Add Articles -- Now that we have our components built, 
  add a few articles of your own to the data array.*/
 
- {title: 'Model View Controller',
+ {title: 'Model View Controller Song',
     date: 'Oct 30, 2019',
     firstParagraph: `© 2003-2012 James Dempsey`,
 
@@ -219,7 +219,7 @@ const data = [
     
     `},
     {
-      title: 'Debugging Angst',
+      title: 'Debugging Angst Song',
       date: 'Oct 30, 2019',
       firstParagraph: `Eric Siegel wrote and performed this song when he was a computer science professor at Columbia University, 1997 - 2000.`,
   
@@ -247,7 +247,7 @@ const data = [
       Chorus`
     },
     {
-      title: 'Learning C After Java',
+      title: 'Learning C After Java Song',
       date: 'Oct 30, 2019',
       firstParagraph: `By David Arnow (arnow@sci.brooklyn.cuny.edu)`,
   
