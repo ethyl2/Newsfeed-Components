@@ -20,16 +20,68 @@ let menuItems = [
   </div>
 
   The function takes an array as its only argument.
+  */
 
-  Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
+function createMenu(menuArr) {
+  const menuDiv = document.createElement("div");
+  menuDiv.classList.add("menu");
+
+  const menuUl = document.createElement("ul");
+
+  /*
+  Step 2: Inside this function, iterate over the array creating a list 
+  item <li> element for each item in the array. 
   Add those items to the <ul>
+  */
 
-  Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
+  menuArr.forEach((menuItem) => {
+    let menuLi = document.createElement("li");
+    menuLi.textContent = menuItem;
+    menuUl.appendChild(menuLi);
+    });
+  menuDiv.appendChild(menuUl);
 
-  Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+  //Step 5: return the menu component.
+  return menuDiv;
+};
 
-  Step 5: return the menu component.
+//Step 6: add the menu component to the DOM.
+const body = document.querySelector("body");
+body.appendChild(createMenu(menuItems));
 
-  Step 6: add the menu component to the DOM.
-  
+/*
+  Step 3: Using a DOM selector, select the menu button 
+  (the element with a class of 'menu-button') currently on the DOM.
+  */
+const menuBtn = document.querySelector('.menu-button');
+const menu = document.querySelector('.menu');
+
+/*
+  Step 4: add a click event listener to the menu button. 
+  When clicked it should toggle the class 'menu--open' 
+  on the menu (your div with a 'menu' class).
+  */
+
+menuBtn.addEventListener('click', (event) => {
+  //Original event:
+  //menu.classList.toggle('menu--open');
+
+  //Stretch: Menu slides out when the button is clicked.
+
+  TweenMax.to(menu, 2, {left: 0});
+});
+
+/* Stretch: Animation Goal #1. Animate the menu opening: 
+You will need to change the CSS for the menu in order to achieve this. 
+Get the menu to slide in from the left side of the screen. 
 */
+
+TweenMax.to(menu, 2, {left: 0});
+
+/*Bonus: Get the menu to slide back out when the user 
+clicks anywhere on the screen other than the menu.*/
+body.addEventListener('click', (event) => {
+  if (event.target !== menu) {
+    TweenMax.to(menu, 2, {left: -800});
+    }
+});
